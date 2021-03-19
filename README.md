@@ -12,11 +12,11 @@ and definition of persistent external modules.
 Start Gerrit Code Review in its demo/staging out-of-the-box setup:
 
 ```
-docker run -ti -p 8080:8080 -p 29418:29418 gerritcodereview/gerrit
+docker run -ti -p 8090:8090 -p 29418:29418 gerritcodereview/gerrit
 ```
 
 Wait a few minutes until the ```Gerrit Code Review NNN ready``` message appears,
-where NNN is your current Gerrit version, then open your browser to http://localhost:8080
+where NNN is your current Gerrit version, then open your browser to http://localhost:8090
 and you will be in Gerrit Code Review.
 
 *NOTE*: If your docker server is running on a remote host, change 'localhost' to the hostname
@@ -28,7 +28,7 @@ and allows installing additional plugins downloaded from [Gerrit CI](https://ger
 Official releases are also available as Docker images, e.g. use the following to run the 3.3.0 version.
 
 ```
-docker run -ti -p 8080:8080 -p 29418:29418 gerritcodereview/gerrit:3.3.0
+docker run -ti -p 8090:8090 -p 29418:29418 gerritcodereview/gerrit:3.3.0
 ```
 
 ## Build docker image
@@ -80,7 +80,7 @@ services:
        - cache-volume:/var/gerrit/cache
     ports:
        - "29418:29418"
-       - "8080:8080"
+       - "8090:8090"
 
 volumes:
   git-volume:
@@ -119,7 +119,7 @@ services:
     image: gerritcodereview/gerrit
     ports:
       - "29418:29418"
-      - "80:8080"
+      - "80:8090"
     depends_on:
       - ldap
     volumes:
@@ -179,7 +179,7 @@ Example of /external/gerrit/etc/gerrit.config
   listenAddress = *:29418
 
 [httpd]
-  listenUrl = http://*:8080/
+  listenUrl = http://*:8090/
 
 [cache]
   directory = cache

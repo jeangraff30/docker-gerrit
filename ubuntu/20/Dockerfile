@@ -28,7 +28,7 @@ ENV CANONICAL_WEB_URL=
 ENV HTTPD_LISTEN_URL=
 
 # Allow incoming traffic
-EXPOSE 29418 8080
+EXPOSE 29418 8090
 
 VOLUME ["/var/gerrit/git", "/var/gerrit/index", "/var/gerrit/cache", "/var/gerrit/db", "/var/gerrit/etc"]
 
